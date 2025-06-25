@@ -103,4 +103,14 @@ mbti_activities = {
 # 버튼 클릭 시 전체 출력
 # ---------------------
 if st.button("🎁 모든 MBTI 유형 추천 보기"):
-    for mbti, activities in mbti_
+    for mbti, activities in mbti_activities.items():
+        st.markdown(f"### 🧬 {mbti}")
+        cols = st.columns(3)
+        for i, (desc, img) in enumerate(activities):
+            with cols[i % 3]:
+                st.image(img, use_column_width=True)
+                st.caption(desc)
+
+# 푸터
+st.markdown("---")
+st.caption("✨ Made with Streamlit · 모두에게 추천을!")
