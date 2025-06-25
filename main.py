@@ -1,14 +1,21 @@
 import streamlit as st
 import random
 
-# 🎯 앱 기본 설정
-st.set_page_config(page_title="MBTI 추천 활동", page_icon="🧠", layout="centered")
+# ---------------------
+# 앱 설정
+# ---------------------
+st.set_page_config(
+    page_title="MBTI 전체 추천 활동 🎁",
+    page_icon="🧠",
+    layout="wide"
+)
 
-# 🎉 제목
-st.title("😄 MBTI별 심심할 때 추천 활동")
-st.markdown("당신의 성격 유형에 맞춰 오늘 뭐 하면 좋을지 추천해드릴게요! 💡")
+st.title("🎯 MBTI별 오늘 뭐 하지?")
+st.markdown("MBTI 유형별로 오늘 하면 좋을 활동들을 한 번에 추천해드릴게요! 😊")
 
-# 🧠 MBTI별 추천 활동 (16유형 전부 포함!)
+# ---------------------
+# MBTI별 활동 데이터 (16유형)
+# ---------------------
 mbti_activities = {
     "INTJ": [
         ("📊 미래 계획 세우기", "https://images.unsplash.com/photo-1584697964199-80f3544f0d3f"),
@@ -83,7 +90,7 @@ mbti_activities = {
     "ESTP": [
         ("🏋️‍♂️ 운동하러 가기", "https://images.unsplash.com/photo-1558611848-73f7eb4001b7"),
         ("🎮 실시간 게임하기", "https://images.unsplash.com/photo-1603468622562-2b8a5f7d35c5"),
-        ("🕺 클럽 음악 틀고 방에서 춤추기", "https://images.unsplash.com/photo-1596464716121-624d9e278579")
+        ("🕺 방에서 클럽처럼 춤추기", "https://images.unsplash.com/photo-1596464716121-624d9e278579")
     ],
     "ESFP": [
         ("🎤 노래방 가기", "https://images.unsplash.com/photo-1585386959984-a4155223f289"),
@@ -92,11 +99,8 @@ mbti_activities = {
     ]
 }
 
-# 👉 MBTI 선택 UI
-selected_mbti = st.selectbox("📌 당신의 MBTI는?", [""] + list(mbti_activities.keys()))
-
-# 🔁 추천 받기 버튼
-if st.button("🎁 추천 받기"):
-    if selected_mbti:
-        activity, image = random.choice(mbti_activities[selected_mbti])
-        st.success(f"✨
+# ---------------------
+# 버튼 클릭 시 전체 출력
+# ---------------------
+if st.button("🎁 모든 MBTI 유형 추천 보기"):
+    for mbti, activities in mbti_
